@@ -62,8 +62,8 @@ urlcolor=hrefurl
 \parindent 0px %ustawia wartość wcięcia na początku akapitu/paragrafu na zero, co daje taki efekt, że nie ma wcięć
 
 \date{\vspace{-3em}}
-\title{\vspace{-2em}\texttt{Title}\\ \begin{large} short description\end{large}\vspace{-0.5em}}
-\author{author} %Created and typeset by: Tomasz Zdeb
+\title{\vspace{-2em}\texttt{Computer Science} \begin{large} Personal notes on different branches of computing\end{large}\vspace{-0.5em}}
+\author{Created and typeset by: Tomasz Zdeb}
 %adding some negative vspace allows to controll the spaces in the title
 
 % KONIEC PREAMBUŁY
@@ -75,12 +75,42 @@ urlcolor=hrefurl
 
 \begin{scriptsize}
 Source Materials:\\
-\fbox{\url{www.website.com}}\source_space\\
+\fbox{\url{https://youtu.be/TW_-ZSWKlTY}}\source_space\\
 \fbox{\url{www.website.com}}
 \end{scriptsize}
 
 \myline{16}{1}
 
-Content...
+
+\subsubsection{Windows register}
+It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to Widows Run will launch it.\\
+
+\textbf{Adding control panel to context menu}
+\begin{itemize}
+\item find \texttt{HKEY{\us}CLASSES{\us}ROOT{\bs}Directory{\bs}Background{\bs}shell} key
+\item create a key named \texttt{Control Panel} or \texttt{Run Control Panel} (this name will be displayed in the context menu)
+\item create subkey named \texttt{command}
+\item modify its value to \texttt{rundll32.exe shell32.dll,Control{\us}RunDLL}
+\end{itemize}
+
+\textbf{Changing default instalation path}
+
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion} key
+\item modify \texttt{ProgramFilesDir} and \texttt{ProgramFilesDir (x86)} to your desired new default installation paths
+\end{itemize}
+
+\textbf{Setting custom logo in System Properties }
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\us}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion{\bs}OEMInformation} key
+\item create new string value named \texttt{Logo}
+\item set \texttt{Logo} value to path pointing to desired graphics with \texttt{.bmp} file extension
+\end{itemize}
+
+\textbf{Setting custom logscreen prompt}
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows NT{\bs}CurrentVersion{\bs}Winlogon}
+\item edit \texttt{LegalNoticeCaption} and \texttt{LegalNoticeText} to add title and text
+\end{itemize}
 
 \end{document}
