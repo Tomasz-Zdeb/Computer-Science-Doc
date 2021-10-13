@@ -62,7 +62,7 @@ urlcolor=hrefurl
 \parindent 0px %ustawia wartość wcięcia na początku akapitu/paragrafu na zero, co daje taki efekt, że nie ma wcięć
 
 \date{\vspace{-3em}}
-\title{\vspace{-2em}\texttt{Computer Science} \begin{large} Personal notes on different branches of computing\end{large}\vspace{-0.5em}}
+\title{\vspace{-2em}\texttt{Computer Science}\\ \begin{large} Notes on different branches of computing\end{large}\vspace{-0.5em}}
 \author{Created and typeset by: Tomasz Zdeb}
 %adding some negative vspace allows to controll the spaces in the title
 
@@ -81,7 +81,7 @@ Source Materials:\\
 
 \myline{16}{1}
 
-
+\section{Windows}
 \subsubsection{Windows register}
 It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
 
@@ -100,6 +100,8 @@ It's a system database that contains most of systems configuration options. User
 \item modify \texttt{ProgramFilesDir} and \texttt{ProgramFilesDir (x86)} to your desired new default installation paths
 \end{itemize}
 
+\fbox{WARNING} After changing default instalation path I had some issues with \textbf{.NET Core} apps development, they couldn't find the runtime which was installed in C:{\bs}Program Files. After moving \textbf{dotnet} directory to new path apps were running again, but \textbf{Visual Studio} had some issues like couldn't find project templates. For these reasons i reverted all the changes made in these keys.\\
+
 \textbf{Setting custom logo in System Properties }
 \begin{itemize}
 \item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\us}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion{\bs}OEMInformation} key
@@ -115,5 +117,9 @@ It's a system database that contains most of systems configuration options. User
 
 \subsubsection{Winver}
 passing winver to \textbf{Windows Run} will launch a program that displays information about \textbf{Windows} version on the machine.
+
+\section{Linux}
+
+\section{GIT}
 
 \end{document}
