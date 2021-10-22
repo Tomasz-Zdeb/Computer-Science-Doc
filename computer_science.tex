@@ -47,6 +47,7 @@
 \newcommand{\tc}[2]{\textcolor{#1}{#2}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\myline}[2]{\noindent\makebox[\linewidth]{\rule{#1cm}{#2pt}}}
+\newcommand{\keyshortcut}[1]{\texttt{#1}}
 %==========================================================================
 % USTAWIENIA
 \hypersetup %edytuje właściwości hiperłączy np. kolor
@@ -83,6 +84,14 @@ Source Materials:\\
 \myline{16}{1}
 
 \section{Windows}
+
+\subsubsection{Key Shortcuts and Run Commands}
+\begin{itemize}
+\item \keyshortcut{<Ctrl + R>} - starts \textbf{run window}
+\item \keyshortcut{Run -> taskmgr} - runs \textbf{Task Manager}
+\item \keyshortcut{<Win + Shift + S>} runs \textbf{Snip \& Sketch} (screenshot)
+\end{itemize}
+
 \subsubsection{Windows register}
 It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
 
