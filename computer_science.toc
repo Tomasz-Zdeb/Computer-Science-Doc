@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Windows}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ease of Acces: Key Shortcuts and Run Commands}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Key Shortcus}{2}{subsubsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.2}Run Commands}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Windows register}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Winver}{3}{subsubsection.1.2.2}%
+\contentsline {section}{\numberline {2}Linux}{3}{section.2}%
+\contentsline {section}{\numberline {3}Version Control}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}GIT}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}SVN}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}General Concepts}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}How to learn programming}{3}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Sources}{3}{section.5}%

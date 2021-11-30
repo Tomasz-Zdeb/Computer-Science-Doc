@@ -53,9 +53,10 @@
 \hypersetup %edytuje właściwości hiperłączy np. kolor
 {
 colorlinks=true,
-linkcolor=hreflink,
+linkcolor=black,
 urlcolor=hrefurl
 }
+
 
 % \pagestyle{empty} %sprawia ze strony nie są numerowane - jezeli jest na stronie \maketitle to style jest nadpisywany i na takiej stronie trzeba dodatkowo umiescic zaraz po \maketitle komende \thispagestyle{empty}
 
@@ -73,6 +74,9 @@ urlcolor=hrefurl
 \maketitle
 % \thispagestyle{empty} % \maketitle nadpisuje dzialanie \pagestyle{empty} dlatego musimy zaraz po tej komendzie skorzystać z ustawienia dla tej konkretnej strony
 \myline{16}{1}
+
+\tableofcontents
+\newpage
 
 \section{Windows}
 
@@ -96,7 +100,7 @@ urlcolor=hrefurl
 \subsubsection{Windows register}
 It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
 
-\fbox{Don't do things listed below, they're shown just for educational purposes}\\
+\fbox{ WARNING - Do not do things listed below! they're shown just for educational purposes}\\
 
 \textbf{Adding control panel to context menu}
 \begin{itemize}
