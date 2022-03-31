@@ -9,3 +9,6 @@
 *.ps
 *.log
 *.toc
+*.gz
+*.out
+*.glo
