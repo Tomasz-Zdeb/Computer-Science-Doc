@@ -1,7 +1,8 @@
 % POCZĄTEK PREAMBUŁY
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,b5paper,twoside,openany]{book}
+% openany - normally chapters start at right page. That leads to blank pages if the content does not allow the chapter
+% to start at the right page. openany function allows chapters to start at any page
 %======================================================================
-%    Te trzy pakiety należy dołączyć aby wyświetlać polskie znaki
 %----------------------------------------------------------------------
 \usepackage[utf8]{inputenc} % `utf8` option to match Editor encoding
 \usepackage[T1]{fontenc}
@@ -14,11 +15,15 @@
 \usepackage[rightcaption]{sidecap} %pozwala na tytuły obrazów - caption{}
 %po prawej lub lewej stronie obrazu - wymaga opakowania w środowisko
 \usepackage{float} % wymagany aby w niektórych środowiskach ustawiać opcje wydruku, np na górze strony, na dole, czy dokładnie tam gdzie został wstawiony w kodzie źródłowym
-\usepackage[margin=1in]{geometry} %odpowiada za rozmiar marginesów
+\usepackage[margin=0.5in]{geometry} %odpowiada za rozmiar marginesów
 \usepackage{hyperref} %pozwala na tworzenie hiperłączy
 \usepackage{xcolor}
 \usepackage{fancyvrb}
 \usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage[acronym,toc,section=section]{glossaries}
+% acronym - allows create different table for acronyms
+% toc,section=section - allows glossaries to be printed in table of contents
 \tcbuselibrary{skins,breakable} %tutaj nie pamiętam ale chyba te środowiska z czarnym tłem w których jest pisany kod
 %==========================================================================
 % DEFINICJE
@@ -57,15 +62,35 @@ linkcolor=black,
 urlcolor=hrefurl
 }
 
-
 % \pagestyle{empty} %sprawia ze strony nie są numerowane - jezeli jest na stronie \maketitle to style jest nadpisywany i na takiej stronie trzeba dodatkowo umiescic zaraz po \maketitle komende \thispagestyle{empty}
-
 
 \parindent 0px %ustawia wartość wcięcia na początku akapitu/paragrafu na zero, co daje taki efekt, że nie ma wcięć
 
+\titleformat{\part}{\bfseries\centering\Huge{\titlerule[1.5pt]\vspace{0.1em}\titlerule[1.5pt]\vspace{0.5em}}}{Part \thepart\ -}{10pt}{\Huge}[{\vspace{0.5em}\titlerule[1.5pt]\vspace{0.1em}\titlerule[1.5pt]}]
+\titlespacing{\part}{0pt}{0pt}{20pt}
+
+\titleformat{\chapter}{\bfseries\centering\Huge{\titlerule[1.5pt]}}{\thechapter .}{10pt}{\huge}[{\titlerule[1.5pt]}]
+\titlespacing{\chapter}{0pt}{0pt}{20pt}
+
+\titleformat{\section}{\bfseries\large}{\thesection}{0.5em}{}[\titlerule]
+\titlespacing{\section}{0pt}{1ex}{10pt} %how to use "plus" operator
+
+%glossaries
+
+\makeglossaries
+
+\newglossaryentry{paradigm}
+{
+    name=paradigm,
+    description={a typical example or pattern of something; a pattern or model}
+}
+
+\newacronym{cpu}{CPU}{Central Processing Unit}
+
+
 \date{\vspace{-3em}}
-\title{\vspace{-2em}\texttt{Computer Science}\vspace{-0.5em}}
-\author{Created and typeset by: Tomasz Zdeb}
+\title{\vspace{-2em}{\Huge \texttt{>> Computer Science <<}}\vspace{-0.5em}}
+\author{{\LARGE Created and typeset by: Tomasz Zdeb}}
 %adding some negative vspace allows to controll the spaces in the title
 
 % KONIEC PREAMBUŁY
@@ -73,117 +98,25 @@ urlcolor=hrefurl
 \begin{document}
 \maketitle
 % \thispagestyle{empty} % \maketitle nadpisuje dzialanie \pagestyle{empty} dlatego musimy zaraz po tej komendzie skorzystać z ustawienia dla tej konkretnej strony
-\myline{16}{1}
 
 \tableofcontents
 \newpage
 
-\section{Windows}
+\input{LaTeX/LaTeX} %LaTeX Part
 
-\subsection{Ease of Acces: Key Shortcuts and Run Commands}
+%\input{Windows/Windows} %Windows Part
 
-\subsubsection{Key Shortcus}
-\begin{itemize}
-\item \keyshortcut{<Ctrl + R>} - starts \textbf{run window}
-\item \keyshortcut{<Win + Shift + S>} runs \textbf{Snip \& Sketch} (screenshot)
-\end{itemize}
+%\input{Linux/Linux} %Linux Part
 
-\subsection{Run Commands}
-\begin{itemize}
-\item \keyshortcut{Run -> taskmgr} - runs \textbf{Task Manager}
-\item \keyshortcut{Run -> winver} - runs simple program displaying \textbf{Windows} version on current machine
-\item \keyshortcut{Run -> mspaint} - runs \textbf{Paint}
-\item \keyshortcut{Run -> calc} - runs \textbf{Calculator}
-\item \keyshortcut{Run -> control} - runs \textbf{Control Panel}
-\end{itemize}
+%\input{GeneralConcepts/GeneralConcepts} %General Concepts Part
 
-\subsubsection{Windows register}
-It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
+\part{Additions} %Additions Part
 
-\fbox{ WARNING - Do not do things listed below! they're shown just for educational purposes}\\
+%[resource]:           \url{https://youtu.be/TW_-ZSWKlTY}\\
+%[resource]:           \url{https://www.jaknauczycsieprogramowania.pl/l}
 
-\textbf{Adding control panel to context menu}
-\begin{itemize}
-\item find \texttt{HKEY{\us}CLASSES{\us}ROOT{\bs}Directory{\bs}Background{\bs}shell} key
-\item create a key named \texttt{Control Panel} or \texttt{Run Control Panel} (this name will be displayed in the context menu)
-\item create subkey named \texttt{command}
-\item modify its value to \texttt{rundll32.exe shell32.dll,Control{\us}RunDLL}
-\end{itemize}
+\printglossary[title=Abbreviations used in the book, toctitle=Abbreviations,type=\acronymtype]
 
-\textbf{Changing default instalation path}
-
-\begin{itemize}
-\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion} key
-\item modify \texttt{ProgramFilesDir} and \texttt{ProgramFilesDir (x86)} to your desired new default installation paths
-\end{itemize}
-
-\fbox{WARNING} After changing default instalation path I had some issues with \textbf{.NET Core} apps development, they couldn't find the runtime which was installed in C:{\bs}Program Files. After moving \textbf{dotnet} directory to new path apps were running again, but \textbf{Visual Studio} had some issues like couldn't find project templates. For these reasons i reverted all the changes made in these keys.\\
-
-\textbf{Setting custom logo in System Properties }
-\begin{itemize}
-\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\us}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion{\bs}OEMInformation} key
-\item create new string value named \texttt{Logo}
-\item set \texttt{Logo} value to path pointing to desired graphics with \texttt{.bmp} file extension
-\end{itemize}
-
-\textbf{Setting custom logscreen prompt}
-\begin{itemize}
-\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows NT{\bs}CurrentVersion{\bs}Winlogon}
-\item edit \texttt{LegalNoticeCaption} and \texttt{LegalNoticeText} to add title and text
-\end{itemize}
-
-\subsubsection{Winver}
-passing winver to \textbf{Windows Run} will launch a program that displays information about \textbf{Windows} version on the machine.
-
-\section{Linux}
-
-\section{Version Control}
-
-\subsection{GIT}
-
-\subsection{SVN}
-
-\section{General Concepts}
-
-\subsection{How to learn programming}
-
-There are two main approaches when it comes to learning how to code:
-\begin{itemize}
-\item \textbf{top-down} - focuses on following a tutorial on how to make a full project without going too much into details 
-\item \textbf{bottom-up} - focuses on learning basic concepts and all the details, then aggregating them into a bigger project
-\end{itemize}
-None of these approaches is perfect, both have their pros and cons, but to achieve quite a good learning effitiency it's optimal to combine these two in a learning process.\\
-
-Building a working application gives a serious \textbf{load of satisfaction} that pushes the one deeper into learning process, that is the reason why learning should focus on \textbf{solving some real life problems}. It's good to learn programming in the incremental way - that means that it's necessary to always maintain working application, and develop only one (or even a part of) new feature at the time (to avoid scenarios when working on couple different features, and none of them is working as well as the whole application). This approach could be used not only in term of creating a single project but in term of whole learning process. Sometimes it's good to learn a little bit of one thing, then another, and then another, when gathered some general knowledge on these topics, come back to the first and master it, then to the second and then to the third.
-
-\subsection{REST API}
-
-\subsubsection{Name meaning}
-
-Acronyms stand for \textbf{REpresentational State Transfer} and \textbf{Application Programming Interface}.\\
-
-\subsubsection{What's an API}
-
-The purpose of creating an \textbf{API} is to allow \textbf{application} or \textbf{service} access to a resource in other \textbf{application} or \textbf{service}. \textbf{Application} or \textbf{service }that contains the resource is then called \textbf{server}, and the \textbf{application} or \textbf{service} that accesses the resource is called \textbf{client}.\\
-
-\subsubsection{Stateles communication}
-
-\textbf{WEB APIs} don't have necessarily to be \textbf{RESTful}, the most characteristic feater of \textbf{REST} is that the communication is \textbf{stateless} (there is no session created, all the necessary information is contained in the passed request, and no information about previous requests is stored).\\
-
-\subsubsection{How todays REST APIs work}
-
-Most of todays \textbf{WEB Services} use \textbf{RESTful APIs} due to their flexibility and versatility. \textbf{REST} comparing to first generation \textbf{XML-RPC} protocol and second generation \textbf{SOAP} (that force to use a very specific structure of communication)	can be created by any programming language and use many different data formats, JSON is the most popular one though due to it's human readable form and simplicity.\\
-
-\textbf{REST APIs} use \textbf{HTTP} requests to perform \textbf{CRUD} (\textbf{Create Read Update Delete}) opeartions on the resource. For example an \textbf{REST API} can use \texttt{GET} request to obtain a record, \texttt{POST} request to create a record, \texttt{PUT} request to update a record and \texttt{DELETE} request to delete a record.
-
-\subsubsection{Endpoints}
-
-To allow clients to acces the methods, a \textbf{path} is assigned to every method - this path is called the \textbf{endpoint}. Developers assign (map) these paths to a given method in \textbf{application} code.
-
-\section{Sources}
-\begin{scriptsize}
-\url{https://youtu.be/TW_-ZSWKlTY}\\
-\url{https://www.jaknauczycsieprogramowania.pl/l}
-\end{scriptsize}
+\printglossary[title=List of Terms, toctitle=Glossary] 
 
 \end{document}

@@ -1,0 +1,56 @@
+\part{Windows}
+
+\subsubsection{Key Shortcuts}
+\begin{itemize}
+\item \keyshortcut{<Ctrl + R>} - starts \textbf{run window}
+\item \keyshortcut{<Win + Shift + S>} runs \textbf{Snip \& Sketch} (screenshot)
+\end{itemize}
+
+\subsection{Run Commands}
+\begin{itemize}
+\item \keyshortcut{Run -> taskmgr} - runs \textbf{Task Manager}
+\item \keyshortcut{Run -> winver} - runs simple program displaying \textbf{Windows} version on current machine
+\item \keyshortcut{Run -> mspaint} - runs \textbf{Paint}
+\item \keyshortcut{Run -> calc} - runs \textbf{Calculator}
+\item \keyshortcut{Run -> control} - runs \textbf{Control Panel}
+\end{itemize}
+
+\subsection{Windows register}
+\textcolor{red}{change the article - what registry is used for?}
+
+It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
+
+\fbox{ WARNING - Do not do things listed below! they're shown just for educational purposes}\\
+
+\textbf{Adding control panel to context menu}
+\begin{itemize}
+\item find \texttt{HKEY{\us}CLASSES{\us}ROOT{\bs}Directory{\bs}Background{\bs}shell} key
+\item create a key named \texttt{Control Panel} or \texttt{Run Control Panel} (this name will be displayed in the context menu)
+\item create subkey named \texttt{command}
+\item modify its value to \texttt{rundll32.exe shell32.dll,Control{\us}RunDLL}
+\end{itemize}
+
+\textbf{Changing default instalation path}
+
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion} key
+\item modify \texttt{ProgramFilesDir} and \texttt{ProgramFilesDir (x86)} to your desired new default installation paths
+\end{itemize}
+
+\fbox{WARNING} After changing default instalation path I had some issues with \textbf{.NET Core} apps development, they couldn't find the runtime which was installed in C:{\bs}Program Files. After moving \textbf{dotnet} directory to new path apps were running again, but \textbf{Visual Studio} had some issues like couldn't find project templates. For these reasons i reverted all the changes made in these keys.\\
+
+\textbf{Setting custom logo in System Properties }
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\us}SOFTWARE{\bs}Microsoft{\bs}Windows{\bs}CurrentVersion{\bs}OEMInformation} key
+\item create new string value named \texttt{Logo}
+\item set \texttt{Logo} value to path pointing to desired graphics with \texttt{.bmp} file extension
+\end{itemize}
+
+\textbf{Setting custom logscreen prompt}
+\begin{itemize}
+\item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows NT{\bs}CurrentVersion{\bs}Winlogon}
+\item edit \texttt{LegalNoticeCaption} and \texttt{LegalNoticeText} to add title and text
+\end{itemize}
+
+\subsection{Winver}
+passing winver to \textbf{Windows Run} will launch a program that displays information about \textbf{Windows} version on the machine.
