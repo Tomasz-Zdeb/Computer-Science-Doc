@@ -1,44 +1,41 @@
-% POCZĄTEK PREAMBUŁY
 \documentclass[10pt,b5paper,twoside,openany]{book}
 % openany - normally chapters start at right page. That leads to blank pages if the content does not allow the chapter
 % to start at the right page. openany function allows chapters to start at any page
 %======================================================================
-%----------------------------------------------------------------------
-\usepackage[utf8]{inputenc} % `utf8` option to match Editor encoding
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-%======================================================================
-% DOŁĄCZONE PAKIETY
-\usepackage{graphicx} %pozwala na dodawanie obrazów
-\usepackage{wrapfig} %pozwala na tworzenie obszarów opływanych przez tekst
-\usepackage{amsmath,amsfonts,amssymb} %rozszerza zbiór symboli matematycznych
-\usepackage[rightcaption]{sidecap} %pozwala na tytuły obrazów - caption{}
-%po prawej lub lewej stronie obrazu - wymaga opakowania w środowisko
-\usepackage{float} % wymagany aby w niektórych środowiskach ustawiać opcje wydruku, np na górze strony, na dole, czy dokładnie tam gdzie został wstawiony w kodzie źródłowym
-\usepackage[margin=0.5in]{geometry} %odpowiada za rozmiar marginesów
-\usepackage{hyperref} %pozwala na tworzenie hiperłączy
-\usepackage{xcolor}
-\usepackage{fancyvrb}
+%>>>>>>> PACKAGES
+\usepackage[utf8]{inputenc} %utf8 option to match Editor encoding
+\usepackage[T1]{fontenc}  %some font encoding package
+\usepackage{lmodern} %package that defines the font itself, allows polish letters
+\usepackage{graphicx} %allows adding graphics to the document
+\usepackage{wrapfig} %allows to create objects surrounded by text
+\usepackage{amsmath,amsfonts,amssymb} %more math symbols, like matrices etc.
+\usepackage[rightcaption]{sidecap} %allows to add captions at right and left sides of the figure, needs to be packed
+%into the figure environment
+\usepackage{float} %allows to specify floating options in some environments
+\usepackage[margin=0.5in]{geometry} %margins
+\usepackage{hyperref} %hyperlinks
+\usepackage{xcolor} %
+\usepackage{fancyvrb} %adds new types of verbatims
 \usepackage{tcolorbox}
-\usepackage{titlesec}
-\usepackage[acronym,toc,section=section]{glossaries}
+\usepackage{titlesec} %allows titling customization
+\usepackage[acronym,toc,section=section]{glossaries}%
 % acronym - allows create different table for acronyms
 % toc,section=section - allows glossaries to be printed in table of contents
 \tcbuselibrary{skins,breakable} %tutaj nie pamiętam ale chyba te środowiska z czarnym tłem w których jest pisany kod
 %==========================================================================
-% DEFINICJE
-% def
+% >>>>>>> DEFs
 \def\bs{\textbackslash}
 \def\us{\textunderscore}
 \def\source_space{\vspace{0.2em}}
 
-% definecolor
+% >>>>>>> DEFINECOLORS
 % href colors
 \definecolor{hrefurl}{RGB}{46,71,217}
 \definecolor{hreflink}{RGB}{39,117,15}
 
-% newenvironment
-\newenvironment{BGVerbatim} %to środowisko tworzy verbatim z czarnym tłem
+% >>>>>>> NEWENVIRONMENTS
+% this is a custom verbatim with black background
+\newenvironment{BGVerbatim}
  {\VerbatimEnvironment
   \begin{tcolorbox}[
     breakable,
@@ -48,13 +45,13 @@
   \begin{Verbatim}}
  {\end{Verbatim}\end{tcolorbox}}
  
-% newcommand
+% >>>>>>> NEWCOMMANDS
 \newcommand{\tc}[2]{\textcolor{#1}{#2}}
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\myline}[2]{\noindent\makebox[\linewidth]{\rule{#1cm}{#2pt}}}
 \newcommand{\keyshortcut}[1]{\texttt{#1}}
 %==========================================================================
-% USTAWIENIA
+% >>>>>>> SETTINGS
 \hypersetup %edytuje właściwości hiperłączy np. kolor
 {
 colorlinks=true,
@@ -75,8 +72,6 @@ urlcolor=hrefurl
 \titleformat{\section}{\bfseries\large}{\thesection}{0.5em}{}[\titlerule]
 \titlespacing{\section}{0pt}{1ex}{10pt} %how to use "plus" operator
 
-%glossaries
-
 \makeglossaries
 
 \newglossaryentry{paradigm}
@@ -87,15 +82,12 @@ urlcolor=hrefurl
 
 \newacronym{cpu}{CPU}{Central Processing Unit}
 
-
 \date{\vspace{-3em}}
 \title{\vspace{-2em}{\Huge \texttt{>> Computer Science <<}}\vspace{-0.5em}}
 \author{{\LARGE Created and typeset by: Tomasz Zdeb}}
-%adding some negative vspace allows to controll the spaces in the title
+%adding some negative vspace allows to remove unnecessary blank space
 
-% KONIEC PREAMBUŁY
-%=======================================================================
-\begin{document}
+\begin{document} %>>>>>>> PREAMBLE END
 \maketitle
 % \thispagestyle{empty} % \maketitle nadpisuje dzialanie \pagestyle{empty} dlatego musimy zaraz po tej komendzie skorzystać z ustawienia dla tej konkretnej strony
 
