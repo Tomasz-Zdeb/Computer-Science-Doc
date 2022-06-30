@@ -1,20 +1,9 @@
 \part{\LaTeX}
-
-Make guide on gloassaries and command:  \texttt{/setcounter (section) (-1)} - curly brackets and backslash\\
-\Gls{paradigm}\\
-\gls{paradigm}\\
-\Glspl{paradigm}\\
-\glspl{paradigm}\\
-\acrshort{cpu}\\
-\acrlong{cpu}\\
-\acrfull{cpu}\\
-\url{https://www.youtube.com/watch?v=PatWof0U-T8}
-
 \section{Glossaries}
 
-Subject of this topic is a brief tour around \textbf{glossaries}, which are being defined as ``\textit{an alphabetical list of words relating to a specific subject, text, or dialect, with explanations; a brief dictionary}". To generate a glossary in an automatic manner \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, we do want to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}.\\
+Glossaries are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate glossaries generation and maintenence \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, it is sometimes desired to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
 
-Before processing any code one thing has to be mentioned. This package requires custom compilation scheme. Unfortunately there is no preset built into \textbf{TeXMaker} for a compilation scheme that will proces glossaries. A command chain has to be configured manually.
+Before processing any code one thing has to be mentioned. The package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A command chain has to be configured manually.
 
 \begin{figure}[H]
 \centering
@@ -22,7 +11,8 @@ Before processing any code one thing has to be mentioned. This package requires 
 \caption{Location of \textbf{Edit User Commands} button in \textbf{TeXMaker} environment}
 \end{figure}
 
-In order to do that, go to: \textbf{User} -> \textbf{User Commands} -> \textbf{Edit User Commands} and type below code into \textbf{command} field:
+In order to define the custom command pipeline, go to: \textbf{User} -> \textbf{User Commands} -> \textbf{Edit User Commands} and type below code into \textbf{command} field:
+%\vspace{-0.5em} --------------------------------------------------------------------
 \begin{verbatim}
 pdflatex -synctex=1 -interaction=nonstopmode %.tex | makeglossaries % | pdflatex 
 -synctex=1 -interaction=nonstopmode %.tex | "C:/Program Files (x86)/Adobe/Acrobat
@@ -35,43 +25,75 @@ Reader DC/Reader/AcroRd32.exe" %.pdf
 \caption{Layout of \textbf{Edit User Commands} window in \textbf{TeXMaker} environment}
 \end{figure}
 
-Pipe symbol is used to chain commands. Words preceded by pause: ``-" are parameters passed to commands, which are words without any additions, placed at the beginning of every part - right after pipe or at the very beginning. Disassembly of this chain of commands allows to differentiate four differents parts here:
+Pipe symbol is used to chain commands. Words preceded by pause: ``-'' are parameters passed to commands, which are words without any additions, placed at the beginning of every part - right after pipe or at the very beginning. Disassembly of this chain of commands allows to differentiate four differents parts here:
 \begin{enumerate}
 \item Generate \textbf{.pdf} file from the \textbf{.tex} file
 \item Generate glossaries
 \item Generate \textbf{.pdf} file from the \textbf{.tex} file
 \item Display \textbf{.pdf}
 \end{enumerate}
-\fbox{\textcolor{red}{use figures in figures->TO USE}}\\
-\fbox{\textcolor{red}{types of glossary entries}}\\
-\fbox{\textcolor{red}{commands used to define glossary entries}}\\
-\fbox{\textcolor{red}{commands used to refer to the glossary entries}}\\
-\fbox{\textcolor{red}{commands used to generate glossary at the end - it is generated only when references are used in the text}}\\
-\fbox{\textcolor{red}{commands used to customize display of the glossary}}
 
+There are two types of entries that glossary package provides:
+\begin{itemize}
+\item glossaries
+\item acronyms
+\end{itemize}
+
+Glossaries are being defined in the preamble after \texttt{\bs makeglossaries} command that has to be put before any of the entries. Syntax of an glossary and acronym entry is as shown below.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{LaTeX/figures/glossary_definition.png}
+\caption{Commands used to define glossaries and acronyms}
+\label{fig:glossary_definition}
+\end{figure}
+
+To print a list of glossaries, \texttt{\bs printglossary} command is used. For an entry to be printed on the list, at least one reference to it in the text is needed. Otherwise even if defined in the preamble, the entry won't be printet on the list.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{LaTeX/figures/printglossary.png}
+\caption{Commands used to print glossary and acronym list}
+\label{fig:printglossary}
+\end{figure}
+
+By default a list containing both glossaries and acronyms is printed. As shown later on figure \ref{fig:usepackage_glossaries} parameter \texttt{acronym} can be provided while invoking the package use, that allows to print separate list for acronyms and glossaries. To print the separate list for acronyms specify \texttt{type=\bs acronymtype} attribute in a separate \texttt{\bs printglossary} call as shown on figure \ref{fig:printglossary}, which also illustrate, how a custom title\footnote{Title displayed in the text} as well as token title\footnote{Title displayed in table of content} can be set. To allow glossary table to be included in table of contents an additional parameters: \texttt{toc} and \texttt{section=section} are needed when invoking \textbf{glossaries} package as shown on picture \ref{fig:usepackage_glossaries}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{LaTeX/figures/glossary_types.png}
+\caption{List of acronyms and glossaries with use of \textbf{acronym} parameter for \textbf{glossaries} package, that allows for separate list for acronyms to be printed}
+\end{figure}
+
+To reference a glossary or acronym, several commands are used.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{LaTeX/figures/reference_glossaries.png}
+\caption{Commands used to reference glossaries and acronyms}
+\end{figure}
+
+Each entry can be referenced in several ways. Plural and singular forms as well as upper case and lowercase versions are avaliable for glossaries. Acronym references differ from each other by level of detail printed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{LaTeX/figures/glossary_calls.png}
+\caption{Examples of glossaries and acronyms references}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{LaTeX/figures/usepackage_glossaries.png}
+\caption{Command used to invoke the use of \textbf{glossaries} package with additional parameters passed to it}
+\label{fig:usepackage_glossaries}
+\end{figure}
+
+\fbox{\textcolor{red}{commands used to customize display of the glossary - glossarystyle}}\\
+\fbox{\textcolor{red}{Make guide on gloassaries and command:  \texttt{/setcounter (section) (-1)} - curly brackets and backslash}}\\
+\url{https://www.youtube.com/watch?v=PatWof0U-T8}
+\fbox{\textcolor{red}{take care of propper sectioning}}\\
 \begin{verbatim}
-
 %\glossarystyle{listhypergroup} ????
-
-% acronym - allows create different table for acronyms
-% toc,section=section - allows glossaries to be printed in table of contents
-
-\makeglossaries
-
-\newglossaryentry{paradigm}
-{
-    name=paradigm,
-    description={a typical example or pattern of something; a pattern or model}
-}
-
-\newacronym{cpu}{CPU}{Central Processing Unit}
-
-%\glossarystyle{listhypergroup}
-\printglossary[title=Skróty, toctitle=Skróty z kosmosu,type=\acronymtype]
-
-
-
-\printglossary[title=Kosmiczny glosariusz, toctitle=Kosmiczne pojęcia] 
 \end{verbatim}
 
 \section{Quotes}
