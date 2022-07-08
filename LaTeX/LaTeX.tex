@@ -3,7 +3,7 @@
 
 Glossaries are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate glossaries generation and maintenence \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, it is sometimes desired to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
 
-Before processing any code one thing has to be mentioned. The package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A command chain has to be configured manually.
+Before processing any code two things have to be mentioned. One: glossaries package require Perl interpreter to be present at the machine. Two: the package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A command chain has to be configured manually.
 
 \begin{figure}[H]
 \centering
@@ -88,14 +88,7 @@ Each entry can be referenced in several ways. Plural and singular forms as well 
 \label{fig:usepackage_glossaries}
 \end{figure}
 
-\fbox{\textcolor{red}{commands used to customize display of the glossary - glossarystyle}}\\
-\fbox{\textcolor{red}{Make guide on gloassaries and command:  \texttt{/setcounter (section) (-1)} - curly brackets and backslash}}\\
-\url{https://www.youtube.com/watch?v=PatWof0U-T8}
-\fbox{\textcolor{red}{take care of propper sectioning}}\\
-\begin{verbatim}
-%\glossarystyle{listhypergroup} ????
-\end{verbatim}
-
+There are many more options regarding to glossary package, i.e. commands used to customize display of the gloassaries, enable sorting, create custom glossaries, put alternative text in references to a glossary, etc. You can find them on	\href{https://www.ctan.org/pkg/glossaries}{CTAN}
 \section{Quotes}
 
 There are several types of quoting avaliable in \LaTeX.
@@ -103,14 +96,6 @@ There are several types of quoting avaliable in \LaTeX.
 Symbol that is placed on the same key as \textbf{tilde} (under or next to the \textbf{escape} button), is used to generate right facing quotes used in anglo-saxon quoting notation.
 
 \fbox{\textcolor{red}{To finish}}
-
-\section{Writing your own class}
-
-\fbox{\textcolor{red}{To be implemented}}
-
-\section{Writing your own package}
-
-\fbox{\textcolor{red}{To be implemented}}
 
 \section{Description list environment}
 
