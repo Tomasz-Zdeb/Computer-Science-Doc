@@ -25,7 +25,7 @@
 % acronym - allows create different table for acronyms
 % toc,section=section - allows glossaries to be printed in table of contents
 
-\tcbuselibrary{skins,breakable} %tutaj nie pamiętam ale chyba te środowiska z czarnym tłem w których jest pisany kod
+\tcbuselibrary{skins,breakable} %probably for propper working of these black environments that code from VS is written in
 %==========================================================================
 % >>>>>>> DEFs
 \def\bs{\textbackslash}
@@ -76,15 +76,39 @@ urlcolor=hrefurl
 \titleformat{\section}{\bfseries\large}{\thesection}{0.5em}{}[\titlerule]
 \titlespacing{\section}{0pt}{1ex}{10pt} %how to use "plus" operator
 
-\makeglossaries
+\makeglossaries %>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GLOSSARIES
 
-\newglossaryentry{paradigm}
+%glossary entries examples:
+
+%\newglossaryentry{paradigm}
+%{
+   % name=paradigm,
+    %description={a typical example or pattern of something; a pattern or model}
+%}
+
+%\newacronym{cpu}{CPU}{Central Processing Unit}
+
+
+\newglossaryentry{miktex}
 {
-    name=paradigm,
-    description={a typical example or pattern of something; a pattern or model}
+name=MiKTeX ,
+description={a free and open-source distribution of the TeX/\LaTeX typesetting system for Microsoft Windows}
 }
 
-\newacronym{cpu}{CPU}{Central Processing Unit}
+\newglossaryentry{bibtex}
+{
+name=BibTeX ,
+description={a reference management software for formatting lists of references. The BibTeX tool is typically used together with the \LaTeX document preparation system}
+}
+
+\newglossaryentry{gls-ctan} %% glossary connected with below acronym
+{
+name=Comprehensive TeX Archive Network,
+description={the authoritative place where TeX related material and software can be found for download}
+}
+\newacronym[see={[Glossary:]{gls-ctan}}]{ctan}{CTAN}{Comprehensive TeX Archive Network\glsadd{gls-ctan}}
+
+%>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GLOSSARIES-END
 
 \date{\vspace{-3em}}
 \title{\vspace{-2em}{\Huge \texttt{>> Computer Science <<}}\vspace{-0.5em}}
@@ -111,8 +135,8 @@ urlcolor=hrefurl
 %[resource]:           \url{https://youtu.be/TW_-ZSWKlTY}\\
 %[resource]:           \url{https://www.jaknauczycsieprogramowania.pl/l}
 
-\printglossary[title=Abbreviations used in the book, toctitle=Abbreviations,type=\acronymtype]
+\printglossary[title=Acronyms, toctitle=Acronyms,type=\acronymtype]
 
-\printglossary[title=List of Terms, toctitle=Glossary] 
+\printglossary[title=Glossary of terms, toctitle=Glossary of terms] 
 
 \end{document}
