@@ -12,3 +12,6 @@
 *.gz
 *.out
 *.glo
+*.bbl
+*.blg
+*.dvi
