@@ -122,15 +122,17 @@ description={the authoritative place where TeX related material and software can
 \tableofcontents
 \newpage
 
-\input{LaTeX/LaTeX} %LaTeX Part
+\input{content/LaTeX/LaTeX} %LaTeX Part
 
-\input{Windows/Windows} %Windows Part
+\input{content/windows/windows} %Windows Part
 
-\input{Linux/Linux} %Linux Part
+\input{content/linux/linux} %Linux Part
 
-\input{GeneralConcepts/GeneralConcepts} %General Concepts Part
+\input{content/general_concepts/general_concepts} %General Concepts Part
 
 \part{Final} 
+
+\chapter*{Acronyms and Glossary}
 
 \printglossary[title=Acronyms, toctitle=Acronyms,type=\acronymtype]
 
@@ -138,6 +140,6 @@ description={the authoritative place where TeX related material and software can
 
 \nocite{*}
 \bibliographystyle{plain}
-\bibliography{Bibliography/sources}
+\bibliography{bibliography/sources}
 
 \end{document}
