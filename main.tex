@@ -138,7 +138,7 @@ description={the authoritative place where TeX related material and software can
 
 \printglossary[title=Glossary, toctitle=Glossary] 
 
-\nocite{*}
+\nocite{*} %allows to print all the bibliography entries defined in bib style even if they were not referenced. If instead of asterix a key would be present, then only the entry specified by that key would be printed.
 \bibliographystyle{plain}
 \bibliography{bibliography/sources}
 
