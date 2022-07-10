@@ -34,8 +34,9 @@
 
 % >>>>>>> DEFINECOLORS
 % href colors
-\definecolor{hrefurl}{RGB}{46,71,217}
-\definecolor{hreflink}{RGB}{39,117,15}
+\definecolor{hrefurl}{RGB}{80,80,80}
+\definecolor{hreflink}{RGB}{80,80,80}
+\definecolor{cite}{RGB}{80,80,80}
 
 % >>>>>>> NEWENVIRONMENTS
 % this is a custom verbatim with black background
@@ -60,7 +61,8 @@
 {
 colorlinks=true,
 linkcolor=black,
-urlcolor=hrefurl
+urlcolor=hrefurl,
+citecolor=cite
 }
 
 % \pagestyle{empty} %sprawia ze strony nie są numerowane - jezeli jest na stronie \maketitle to style jest nadpisywany i na takiej stronie trzeba dodatkowo umiescic zaraz po \maketitle komende \thispagestyle{empty}
@@ -107,6 +109,21 @@ name=Comprehensive TeX Archive Network,
 description={the authoritative place where TeX related material and software can be found for download}
 }
 \newacronym[see={[Glossary:]{gls-ctan}}]{ctan}{CTAN}{Comprehensive TeX Archive Network\glsadd{gls-ctan}}
+
+\newglossaryentry{pipeline}
+{
+name=pipeline,
+description={a chain of processing elements (processes, threads, coroutines, functions, etc.), arranged so that the output of each element is the input of the next}
+}
+
+\newglossaryentry{glossary}
+{
+name=glossary,
+description={an alphabetical list, with meanings, of the words or phrases in a text that are difficult to understand. Also a \LaTeX package that supports acronyms and multiple glossaries creation},
+plural={glossaries} %custom plural form
+}
+
+
 
 %>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>GLOSSARIES-END
 

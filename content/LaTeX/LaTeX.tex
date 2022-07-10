@@ -4,9 +4,9 @@
 
 \section{Glossaries}
 
-Glossaries are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate glossaries generation and maintenence \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, it is sometimes desired to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
+\Glspl{glossary} are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate glossaries generation and maintenence, \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, it is sometimes desired to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
 
-Before processing any code two things have to be mentioned. One: glossaries package require Perl interpreter to be present at the machine. Two: the package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A command chain has to be configured manually.
+Before processing any code two things have to be mentioned. One: glossaries package require Perl interpreter to be present at the machine. Two: the package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A custom command \gls{pipeline} has to be configured manually.
 
 \begin{figure}[H]
 \centering
@@ -14,7 +14,7 @@ Before processing any code two things have to be mentioned. One: glossaries pack
 \caption{Location of \textbf{Edit User Commands} button in \textbf{TeXMaker} environment}
 \end{figure}
 
-In order to define the custom command pipeline, go to: \textbf{User} -> \textbf{User Commands} -> \textbf{Edit User Commands} and type below code into \textbf{command} field:
+In order to define the custom command \gls{pipeline}, go to: \textbf{User} -> \textbf{User Commands} -> \textbf{Edit User Commands} and type below code into \textbf{command} field:
 %\vspace{-0.5em} --------------------------------------------------------------------
 \begin{verbatim}
 pdflatex -synctex=1 -interaction=nonstopmode %.tex | makeglossaries % | pdflatex 
@@ -36,7 +36,7 @@ Pipe symbol is used to chain commands. Words preceded by pause: ``-'' are parame
 \item Display \textbf{.pdf}
 \end{enumerate}
 
-There are two types of entries that glossary package provides:
+There are two types of entries that glossary package provides by default:
 \begin{itemize}
 \item glossaries
 \item acronyms
@@ -91,7 +91,7 @@ Each entry can be referenced in several ways. Plural and singular forms as well 
 \label{fig:usepackage_glossaries}
 \end{figure}
 
-There are many more options regarding to glossary package, i.e. commands used to customize display of the gloassaries, enable sorting, create custom glossaries, put alternative text in references to a glossary, etc. You can find them on \acrshort{ctan} \href{https://www.ctan.org/pkg/glossaries}{website}.
+There are many more options regarding to glossary package, i.e. commands used to customize display of the \gls{glossary}, enable sorting, create custom glossaries, put alternative text in references to a glossary, define custom spelling for plural form, etc. You can find them on \acrshort{ctan} \href{https://www.ctan.org/pkg/glossaries}{website}~\cite{ctan_glossaries}.
 
 \section{Bibliography}
 
