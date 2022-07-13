@@ -4,14 +4,14 @@
 
 \section{Glossaries}
 
-\Glspl{glossary} are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate glossaries generation and maintenence, \LaTeX\ uses a package called: \textbf{glossaries}. Like in most cases, it is sometimes desired to specify additional parameters to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
+\Glspl{glossary} are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate \glspl{glossary} generation and maintenence, \LaTeX\ uses a package called: \textbf{\glspl{glossary}}. Like in most cases, it is sometimes desired to specify additional \glspl{parameter} to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
 
-Before processing any code two things have to be mentioned. One: glossaries package require Perl interpreter to be present at the machine. Two: the package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{TeXMaker} environment for a compilation scheme that will proces glossaries. A custom command \gls{pipeline} has to be configured manually.
+Before processing any code two things have to be mentioned. One: \glspl{glossary} package require \textbf{\href{https://www.perl.org/}{Perl}} interpreter to be present at the machine. Two: the package requires custom compilation scheme in order to take effect. Unfortunately there is no preset built into \textbf{\href{https://www.xm1math.net/texmaker/}{TeXMaker}} environment for a compilation scheme that will proces glossaries. A custom command \gls{pipeline} has to be configured manually.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{content/LaTeX/figures/user_command_glossaries_marked.png}
-\caption{Location of \textbf{Edit User Commands} button in \textbf{TeXMaker} environment}
+\caption{Location of \textbf{Edit User Commands} button in \textbf{\href{https://www.xm1math.net/texmaker/}{TeXMaker}} environment}
 \end{figure}
 
 In order to define the custom command \gls{pipeline}, go to: \textbf{User} -> \textbf{User Commands} -> \textbf{Edit User Commands} and type below code into \textbf{command} field:
@@ -25,63 +25,63 @@ Reader DC/Reader/AcroRd32.exe" %.pdf
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{content/LaTeX/figures/custom_command_marked.png}
-\caption{Layout of \textbf{Edit User Commands} window in \textbf{TeXMaker} environment}
+\caption{Layout of \textbf{Edit User Commands} window in \textbf{\href{https://www.xm1math.net/texmaker/}{TeXMaker}} environment}
 \end{figure}
 
-Pipe symbol is used to chain commands. Words preceded by pause: ``-'' are parameters passed to commands, which are words without any additions, placed at the beginning of every part - right after pipe or at the very beginning. Disassembly of this chain of commands allows to differentiate four differents parts here:
+Pipe symbol is used to chain commands. Words preceded by pause: ``-'' are \glspl{parameter} passed to commands, which are words without any additions, placed at the beginning of every part - right after pipe or at the very beginning. Disassembly of this chain of commands allows to differentiate four differents parts here:
 \begin{enumerate}
 \item Generate \textbf{.pdf} file from the \textbf{.tex} file
-\item Generate glossaries
+\item Generate \glspl{glossary}
 \item Generate \textbf{.pdf} file from the \textbf{.tex} file
 \item Display \textbf{.pdf}
 \end{enumerate}
 
-There are two types of entries that glossary package provides by default:
+There are two types of entries that \gls{glossary} package provides by default:
 \begin{itemize}
-\item glossaries
+\item \glspl{glossary}
 \item acronyms
 \end{itemize}
 
-Glossaries are being defined in the preamble after \texttt{\bs makeglossaries} command that has to be put before any of the entries. Syntax of an glossary and acronym entry is as shown below.
+\Glspl{glossary} are being defined in the preamble after \texttt{\bs makeglossaries} command that has to be put before any of the entries. Syntax of an \gls{glossary} and acronym entry is as shown below.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{content/LaTeX/figures/glossary_definition.png}
-\caption{Commands used to define glossaries and acronyms}
+\caption{Commands used to define \glspl{glossary} and acronyms}
 \label{fig:glossary_definition}
 \end{figure}
 
-To print a list of glossaries, \texttt{\bs printglossary} command is used. For an entry to be printed on the list, at least one reference to it in the text is needed. Otherwise even if defined in the preamble, the entry won't be printet on the list.
+To print a list of \glspl{glossary}, \texttt{\bs printglossary} command is used. For an entry to be printed on the list, at least one reference to it in the text is needed. Otherwise even if defined in the preamble, the entry won't be printet on the list.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{content/LaTeX/figures/printglossary.png}
-\caption{Commands used to print glossary and acronym list}
+\caption{Commands used to print \gls{glossary} and acronym list}
 \label{fig:printglossary}
 \end{figure}
 
-By default a list containing both glossaries and acronyms is printed. As shown later on figure \ref{fig:usepackage_glossaries} parameter \texttt{acronym} can be provided while invoking the package use, that allows to print separate list for acronyms and glossaries. To print the separate list for acronyms specify \texttt{type=\bs acronymtype} attribute in a separate \texttt{\bs printglossary} call as shown on figure \ref{fig:printglossary}, which also illustrate, how a custom title\footnote{Title displayed in the text} as well as token title\footnote{Title displayed in table of content} can be set. To allow glossary table to be included in table of contents an additional parameters: \texttt{toc} and \texttt{section=section} are needed when invoking \textbf{glossaries} package as shown on picture \ref{fig:usepackage_glossaries}.
+By default a list containing both \glspl{glossary} and acronyms is printed. As shown later on figure \ref{fig:usepackage_glossaries} \gls{parameter} \texttt{acronym} can be provided while invoking the package use, that allows to print separate list for acronyms and \glspl{glossary}. To print the separate list for acronyms specify \texttt{type=\bs acronymtype} attribute in a separate \texttt{\bs printglossary} call as shown on figure \ref{fig:printglossary}, which also illustrate, how a custom title\footnote{Title displayed in the text} as well as token title\footnote{Title displayed in table of content} can be set. To allow \gls{glossary} table to be included in table of contents an additional parameters: \texttt{toc} and \texttt{section=section} are needed when invoking \textbf{\glspl{glossary}} package as shown on picture \ref{fig:usepackage_glossaries}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{content/LaTeX/figures/glossary_types.png}
-\caption{List of acronyms and glossaries with use of \textbf{acronym} parameter for \textbf{glossaries} package, that allows for separate list for acronyms to be printed}
+\caption{Lists of acronyms and glossaries generated separately with use of \textbf{acronym} parameter for \textbf{\glspl{glossary}} package, that allows for separate list for acronyms to be printed}
 \end{figure}
 
-To reference a glossary or acronym, several commands are used.
+To reference a \gls{glossary} or acronym, several commands are used.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{content/LaTeX/figures/reference_glossaries.png}
-\caption{Commands used to reference glossaries and acronyms}
+\caption{Commands used to reference \glspl{glossary} and acronyms}
 \end{figure}
 
-Each entry can be referenced in several ways. Plural and singular forms as well as upper case and lowercase versions are avaliable for glossaries. Acronym references differ from each other by level of detail printed.
+Each entry can be referenced in several ways. Plural and singular forms as well as upper case and lowercase versions are avaliable for \glspl{glossary}. Acronym references differ from each other by level of detail printed.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1.0]{content/LaTeX/figures/glossary_calls.png}
-\caption{Examples of glossaries and acronyms references}
+\caption{Examples of \glspl{glossary} and acronyms references}
 \end{figure}
 
 \begin{figure}[H]
@@ -91,7 +91,7 @@ Each entry can be referenced in several ways. Plural and singular forms as well 
 \label{fig:usepackage_glossaries}
 \end{figure}
 
-There are many more options regarding to glossary package, i.e. commands used to customize display of the \gls{glossary}, enable sorting, create custom glossaries, put alternative text in references to a glossary, define custom spelling for plural form, etc. You can find them on \acrshort{ctan} \href{https://www.ctan.org/pkg/glossaries}{website}~\cite{ctan_glossaries}.
+There are many more options regarding to \gls{glossary} package, i.e. commands used to customize display of the \gls{glossary}, enable sorting, create custom \glspl{glossary}, put alternative text in references to a \gls{glossary}, define custom spelling for plural form, etc. You can find them on \acrshort{ctan} \href{https://www.ctan.org/pkg/glossaries}{website}~\cite{ctan_glossaries}.
 
 \section{Bibliography}
 
@@ -198,7 +198,6 @@ C:\Program Files\MiKTeX\tex\latex\base
 \fbox{\url{http://www.peteryu.ca/tutorials/publishing/latex_captions}}\\
 \fbox{\url{https://tex.stackexchange.com/questions/229846/different-bibliographies-for-each-chapter-with-shared-references}}\\
 \fbox{\url{https://ctan.org/pkg/multirow}}\\
-\fbox{\url{https://en.wikipedia.org/wiki/Parameter}}\\
 \fbox{\url{https://dictionary.cambridge.org/pl/dictionary/english/glossary}}\\
 \fbox{\url{https://tex.stackexchange.com/questions/17653/how-to-list-all-bibliography-entries-without-citing}}\\
 \fbox{\url{https://www.overleaf.com/learn/latex/Algorithms}}\\
