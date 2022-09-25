@@ -1,13 +1,13 @@
 \part{Windows}
 
-\subsubsection{Key Shortcuts}
+\section{Key Shortcuts}
 \begin{itemize}
 \item \keyshortcut{<Ctrl + R>} - starts \textbf{run window}
 \item \keyshortcut{<Win + Shift + S>} runs \textbf{Snip \& Sketch} (screenshot)
 \fbox{WIN + . - emoji menu}
 \end{itemize}
 
-\subsection{Run Commands}
+\section{Run Commands}
 \begin{itemize}
 \item \keyshortcut{Run -> taskmgr} - runs \textbf{Task Manager}
 \item \keyshortcut{Run -> winver} - runs simple program displaying \textbf{Windows} version on current machine
@@ -16,8 +16,7 @@
 \item \keyshortcut{Run -> control} - runs \textbf{Control Panel}
 \end{itemize}
 
-\subsection{Windows register}
-\textcolor{red}{change the article - what registry is used for?}
+\section{Windows register}
 
 It's a system database that contains most of systems configuration options. User or system settings as well as applications setting are stored in the register. Before \textbf{Windows 95} \texttt{.ini} configurations files were used (similarly to linux), but later all of the configuration data is stored in register. To modify the register a dedicated editor is used, passing \texttt{regedit} to \textbf{Windows Run} will launch it.\\
 
@@ -52,6 +51,3 @@ It's a system database that contains most of systems configuration options. User
 \item find \texttt{HKEY{\us}LOCAL{\us}MACHINE{\bs}SOFTWARE{\bs}Microsoft{\bs}Windows NT{\bs}CurrentVersion{\bs}Winlogon}
 \item edit \texttt{LegalNoticeCaption} and \texttt{LegalNoticeText} to add title and text
 \end{itemize}
-
-\subsection{Winver}
-passing winver to \textbf{Windows Run} will launch a program that displays information about \textbf{Windows} version on the machine.
