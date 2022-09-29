@@ -2,7 +2,7 @@
 
 \chapter{General}
 
-\section{Glossaries}
+\section{Glossaries} \label{section:glossaries}
 
 \Glspl{glossary} are being defined as ``\textit{an alphabetical list of words related to a specific subject, text, or dialect, with explanations; a brief dictionary}". To automate \glspl{glossary} generation and maintenence, \LaTeX\ uses a package called: \textbf{\glspl{glossary}}. Like in most cases, it is sometimes desired to specify additional \glspl{parameter} to the package, e.g. \textit{acronym}, \textit{toc}, \textit{section=section}. Which will be explained later in this section.\\
 
@@ -186,6 +186,8 @@ Source code:
 
 \subsection{Description}
 
+Description environment can be used as a simple \hyperref[section:glossaries]{glossary}. For an advanced glossary management, it is recommended to use dedicated \hyperref[section:glossaries]{package}
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8]{content/LaTeX/figures/description_outcome_example.png}
@@ -217,6 +219,8 @@ Source code:
 C:\Program Files\MiKTeX\tex\latex\base
 \end{verbatim}
 \section{TO DOs}
+\fbox{\textcolor{red}{Draw a diagram of this project}}\\
+\fbox{\textcolor{red}{Prepare a guide on how to setup VSCode and create compilation scripts}}\\
 \fbox{\textcolor{red}{Add list of tables and list of figures to the table}}\\
 \fbox{\textcolor{red}{Add bibliography to the list of contents}}\\
 \fbox{\textcolor{red}{Add non numbered chapter: acronyms and glossaries to table of contents}}\\
