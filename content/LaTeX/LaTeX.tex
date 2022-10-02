@@ -142,9 +142,9 @@ Bibtex compilation pipeline consists of several compilation steps. By processing
 \label{fig:biblio_bbl_example}
 \end{figure}
 
-Some quick guides, as well as some converters can be found \href{https://www.bibtex.com/g/bibtex-format/}{here} and \href{https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex}{here}. Additional information can be found \href{https://tug.org/bibtex/}{here}.\\
+Some quick guides, as well as some converters can be found at \href{https://www.bibtex.com/g/bibtex-format/}{\textbf{BibTeX} website}~\cite{bibtex_format} and \href{https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex}{Overleaf guide}~\cite{bibliography_management}. Additional information about the functionalities themselves can be found at \href{https://tug.org/bibtex/}{TeX Users Group}~\cite{tex_user_group_bibtex}.\\
 
-Advanced users may want to create a bibliography after each parto or chapter. Detailed guide on how to achieve such effets can be found \href{https://tex.stackexchange.com/questions/229846/different-bibliographies-for-each-chapter-with-shared-references}{here}
+Advanced users may want to create a bibliography after each part or chapter. Detailed guide on how to achieve such effets can be found at \href{https://tex.stackexchange.com/questions/229846/different-bibliographies-for-each-chapter-with-shared-references}{\textbf{TeX Stack Exchange issue}}~\cite{stack_bibliography_at_each_chapter}.
 
 \section{Listing environments}
 
@@ -207,7 +207,25 @@ Source code:
 \end{description} 
 \end{Verbatim}
 
-\section{Where to inser captions and labels}
+\section{Float environments}
+
+Float environment are being defined as containers for content that cannot be broken over a page~\cite{wiki_floats_figures_captions}. Their practical usage focuses on spanning a caption and label\footnote{Invisible identifier used for references throughout the document} as a single entity.\\
+
+For example, there are dedicated environments, mostly for tables and figures where the table or figure itself can be put as well as it's label and caption.
+
+\begin{Verbatim}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.8]{content/LaTeX/figures/description_outcome_example.png}
+  \caption{Example of an description environment}
+  \label{fig:description_outcome_example}
+\end{figure}
+\end{Verbatim}
+
+Above source code has been used to create the figure from previous section. There are all three elements mentioned previously, as well as \texttt{\bs centering} command for additional control. Take note that the environment itself has an intuitive name that suggests it's usage.\\
+
+Floating environment are not displayed as regular text. \LaTeX\ treats them as some kind of entity that can be moved over a page to provide the best content fit. As You can see at the example, there is \textbf{H} provided as additional argument to the environment opening tag. It's a way of forcing \LaTeX\ to display the environment exactly where it has been placed in the source code. To find out more about other positioning parameters, feel free to check the \href{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}{Wikipedia article} regarding that matter.
+
 \fbox{\textcolor{red}{remember to surround tables, figures etc. in their wrapper floatin environments like figure, table etc. and add the caption and label}}
 \section{How to avoid a line break}
 \fbox{\textcolor{red}{to instruct \LaTeX no to break line between some content use tilde, e.g. no\textasciitilde line\textasciitilde break}}
