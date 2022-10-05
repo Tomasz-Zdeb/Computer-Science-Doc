@@ -15,3 +15,5 @@
 *.bbl
 *.blg
 *.dvi
+main.fdb_latexmk
+main.fls
